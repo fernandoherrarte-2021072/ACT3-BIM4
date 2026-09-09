@@ -1,0 +1,142 @@
+<section class="seccion-carrito">
+  <div class="encabezado-carrito">
+    <div>
+      <p class="etiqueta">Tu compra</p>
+
+      <h2>Carrito de ventas</h2>
+
+      <p class="descripcion">
+        Revisa los productos y modifica las cantidades.
+      </p>
+    </div>
+
+    <div
+      class="contador"
+      *ngIf="productos.length > 0"
+    >
+      {{ obtenerCantidadTotal() }}
+      producto(s)
+    </div>
+  </div>
+
+  <!-- Mensaje cuando el carrito está vacío -->
+  <div
+    class="carrito-vacio"
+    *ngIf="productos.length === 0"
+  >
+    <div class="icono-vacio">
+      🛒
+    </div>
+
+    <h3>Tu carrito está vacío</h3>
+
+    <p>
+      Agrega un producto del catálogo para comenzar.
+    </p>
+  </div>
+
+  <!-- Contenido del carrito -->
+  <div *ngIf="productos.length > 0">
+    <div class="lista-carrito">
+      <article
+        class="producto-carrito"
+        *ngFor="let producto of productos"
+      >
+        <div class="informacion-producto">
+          <h3>
+            {{ producto.nombre }}
+          </h3>
+
+          <p>
+            {{ producto.descripcion }}
+          </p>
+
+          <span class="precio-unitario">
+            Precio:
+            {{
+              producto.precio
+                | currency:'GTQ':'symbol-narrow':'1.2-2'
+            }}
+          </span>
+        </div>
+
+        <div class="cantidad">
+          <span class="titulo-cantidad">
+            Cantidad
+          </span>
+
+          <div class="controles-cantidad">
+            <button
+              type="button"
+              class="boton-cantidad"
+              (click)="disminuirCantidad(producto)"
+              aria-label="Disminuir cantidad"
+            >
+              −
+            </button>
+
+            <input
+              type="number"
+              min="1"
+              step="1"
+              [ngModel]="producto.cantidad"
+              (ngModelChange)="
+                cambiarCantidad(producto, $event)
+              "
+            />
+
+            <button
+              type="button"
+              class="boton-cantidad"
+              (click)="aumentarCantidad(producto)"
+              aria-label="Aumentar cantidad"
+            >
+              +
+            </button>
+          </div>
+        </div>
+
+        <div class="subtotal">
+          <span>Subtotal</span>
+
+          <strong>
+            {{
+              producto.precio
+                | subtotal:producto.cantidad
+                | currency:'GTQ':'symbol-narrow':'1.2-2'
+            }}
+          </strong>
+        </div>
+
+        <button
+          type="button"
+          class="boton-eliminar"
+          (click)="eliminarProducto(producto.id)"
+        >
+          Eliminar
+        </button>
+      </article>
+    </div>
+
+    <div class="resumen-carrito">
+      <div class="detalle-total">
+        <span>Total de la compra</span>
+
+        <strong>
+          {{
+            total
+              | currency:'GTQ':'symbol-narrow':'1.2-2'
+          }}
+        </strong>
+      </div>
+
+      <button
+        type="button"
+        class="boton-vaciar"
+        (click)="vaciarCarrito()"
+      >
+        Vaciar carrito
+      </button>
+    </div>
+  </div>
+</section>
