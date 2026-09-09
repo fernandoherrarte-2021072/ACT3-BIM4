@@ -1,4 +1,5 @@
 import {
+  ChangeDetectorRef,
   Component,
   OnDestroy,
   OnInit
@@ -31,7 +32,8 @@ export class Carrito implements OnInit, OnDestroy {
   private carritoSubscription?: Subscription;
 
   constructor(
-    private carritoService: CarritoService
+    private carritoService: CarritoService,
+    private changeDetectorRef: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
@@ -45,6 +47,8 @@ export class Carrito implements OnInit, OnDestroy {
             'Productos recibidos en el carrito:',
             productos
           );
+
+          this.changeDetectorRef.markForCheck();
         },
 
         error: (error) => {
@@ -74,13 +78,18 @@ export class Carrito implements OnInit, OnDestroy {
     producto: Producto,
     cantidad: number
   ): void {
-    if (!Number.isInteger(cantidad)) {
+    const nuevaCantidad = Number(cantidad);
+
+    if (
+      !Number.isInteger(nuevaCantidad) ||
+      nuevaCantidad < 1
+    ) {
       return;
     }
 
     this.carritoService.actualizarCantidad(
       producto.id,
-      cantidad
+      nuevaCantidad
     );
   }
 
@@ -94,17 +103,21 @@ export class Carrito implements OnInit, OnDestroy {
 
   calcularTotal(): void {
     this.total = this.productos.reduce(
-      (acumulado, producto) =>
-        acumulado +
-        producto.precio * producto.cantidad,
+      (acumulado, producto) => {
+        return (
+          acumulado +
+          producto.precio * producto.cantidad
+        );
+      },
       0
     );
   }
 
   obtenerCantidadTotal(): number {
     return this.productos.reduce(
-      (acumulado, producto) =>
-        acumulado + producto.cantidad,
+      (acumulado, producto) => {
+        return acumulado + producto.cantidad;
+      },
       0
     );
   }
