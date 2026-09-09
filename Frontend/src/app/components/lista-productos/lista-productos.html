@@ -1,0 +1,53 @@
+<section class="seccion-productos">
+  <div class="encabezado">
+    <p class="etiqueta">Catálogo</p>
+
+    <h2>Productos disponibles</h2>
+
+    <p class="descripcion">
+      Selecciona los productos que deseas agregar a tu compra.
+    </p>
+  </div>
+
+  <div
+    class="mensaje-exito"
+    *ngIf="mensaje"
+  >
+    {{ mensaje }}
+  </div>
+
+  <div class="lista-productos">
+    <article
+      class="tarjeta-producto"
+      *ngFor="let producto of productos"
+    >
+      <div class="producto-icono">
+        {{ producto.nombre.charAt(0) }}
+      </div>
+
+      <div class="producto-informacion">
+        <h3>{{ producto.nombre }}</h3>
+
+        <p>
+          {{ producto.descripcion }}
+        </p>
+      </div>
+
+      <div class="producto-pie">
+        <span class="precio">
+          {{
+            producto.precio
+              | currency:'GTQ':'symbol-narrow':'1.2-2'
+          }}
+        </span>
+
+        <button
+          type="button"
+          (click)="agregarAlCarrito(producto)"
+        >
+          Agregar al carrito
+        </button>
+      </div>
+    </article>
+  </div>
+</section>
