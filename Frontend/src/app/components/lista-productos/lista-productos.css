@@ -1,0 +1,146 @@
+:host {
+  display: block;
+}
+
+.seccion-productos {
+  padding: 28px;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.07);
+}
+
+.encabezado {
+  margin-bottom: 24px;
+}
+
+.etiqueta {
+  margin: 0 0 5px;
+  color: #2563eb;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+h2 {
+  margin: 0 0 8px;
+  color: #1f2937;
+  font-size: 26px;
+}
+
+.descripcion {
+  margin: 0;
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+.mensaje-exito {
+  margin-bottom: 20px;
+  padding: 12px 15px;
+  color: #166534;
+  background-color: #dcfce7;
+  border: 1px solid #86efac;
+  border-radius: 8px;
+}
+
+.lista-productos {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit, minmax(230px, 1fr));
+  gap: 18px;
+}
+
+.tarjeta-producto {
+  display: flex;
+  flex-direction: column;
+  min-height: 260px;
+  padding: 20px;
+  background-color: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.tarjeta-producto:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
+}
+
+.producto-icono {
+  display: flex;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 15px;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 21px;
+  font-weight: 700;
+  background-color: #2563eb;
+  border-radius: 10px;
+}
+
+.producto-informacion {
+  flex: 1;
+}
+
+.producto-informacion h3 {
+  margin: 0 0 8px;
+  color: #1f2937;
+  font-size: 18px;
+}
+
+.producto-informacion p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.producto-pie {
+  display: flex;
+  margin-top: 20px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.precio {
+  color: #111827;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+button {
+  padding: 9px 12px;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  background-color: #2563eb;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #1d4ed8;
+}
+
+@media (max-width: 600px) {
+  .seccion-productos {
+    padding: 20px;
+  }
+
+  .producto-pie {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  button {
+    width: 100%;
+  }
+}
