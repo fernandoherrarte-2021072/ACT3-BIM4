@@ -1,0 +1,165 @@
+<div class="pagina-formulas">
+
+  <!-- Encabezado principal -->
+  <header class="encabezado-principal">
+    <div class="contenido-encabezado">
+      <p class="etiqueta-principal">
+        Física y Matemáticas
+      </p>
+
+      <h1>Calculadora de fórmulas</h1>
+      <p class="descripcion-principal">
+        Modifica los valores de cada fórmula para observar
+        cómo cambia el resultado automáticamente.
+      </p>
+
+      <button
+        type="button"
+        class="boton-restaurar-todas"
+        (click)="restaurarTodas()"
+      >
+        Restaurar todos los valores
+      </button>
+    </div>
+  </header>
+
+  <!-- Contenido principal -->
+  <main class="contenido-principal">
+
+    <div class="encabezado-seccion">
+      <div>
+        <p class="seccion-etiqueta">
+          Colección
+        </p>
+
+        <h2>Fórmulas disponibles</h2>
+
+        <p>
+          Se muestran cinco fórmulas de Física y cinco de
+          Matemáticas.
+        </p>
+      </div>
+
+      <div class="contador-formulas">
+        {{ listaFormulas.length }} fórmulas
+      </div>
+    </div>
+
+    <!-- Lista de fórmulas -->
+    <section class="lista-formulas">
+
+      <article
+        class="tarjeta-formula"
+        *ngFor="let clave of listaFormulas"
+      >
+        <!-- Encabezado de la fórmula -->
+        <div class="encabezado-tarjeta">
+          <div>
+            <span
+              class="area-formula"
+              [class.area-fisica]="
+                formulas[clave].area === 'Física'
+              "
+              [class.area-matematicas]="
+                formulas[clave].area === 'Matemáticas'
+              "
+            >
+              {{ formulas[clave].area }}
+            </span>
+
+            <h3>
+              {{ formulas[clave].nombre }}
+            </h3>
+          </div>
+
+          <button
+            type="button"
+            class="boton-restaurar"
+            (click)="restaurarFormula(clave)"
+          >
+            Restaurar
+          </button>
+        </div>
+
+        <!-- Ecuación original -->
+        <div class="ecuacion">
+          <span>Fórmula</span>
+
+          <strong>
+            {{ formulas[clave].ecuacion }}
+          </strong>
+        </div>
+
+        <!-- Variables editables -->
+        <div class="seccion-variables">
+          <h4>Valores para calcular</h4>
+
+          <div class="variables">
+            <div
+              class="variable"
+              *ngFor="
+                let variable of datosFormulas[clave] | keyvalue
+              "
+            >
+              <label
+                [for]="clave + '-' + variable.key"
+              >
+                {{ variable.key | titlecase }}
+              </label>
+
+              <input
+                type="number"
+                [id]="clave + '-' + variable.key"
+                [(ngModel)]="
+                  datosFormulas[clave][variable.key]
+                "
+                step="any"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Resultado de la fórmula -->
+        <div class="resultado">
+          <div>
+            <span class="resultado-etiqueta">
+              Resultado
+            </span>
+
+            <p>
+              El valor se actualiza al modificar los datos.
+            </p>
+          </div>
+
+          <strong class="resultado-valor">
+            {{
+              datosFormulas[clave]
+                | resolverFormula:clave
+            }}
+          </strong>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- Mensaje informativo -->
+    <section class="informacion-final">
+      <h2>¿Cómo funciona?</h2>
+
+      <p>
+        Cada fórmula conserva su función original. Los campos
+        solamente modifican una copia de los valores iniciales y
+        el pipe personalizado realiza nuevamente el cálculo.
+      </p>
+    </section>
+
+  </main>
+
+  <!-- Pie de página -->
+  <footer class="pie-pagina">
+    <p>
+      Actividad de fórmulas dinámicas con Angular
+    </p>
+  </footer>
+
+</div>

@@ -1,0 +1,361 @@
+:host {
+  display: block;
+}
+
+.pagina-formulas {
+  min-height: 100vh;
+  color: #1e293b;
+  background-color: #f1f5f9;
+}
+
+.encabezado-principal {
+  padding: 48px 20px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #312e81, #4f46e5, #2563eb);
+}
+
+.contenido-encabezado {
+  width: 100%;
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+.etiqueta-principal {
+  margin: 0 0 7px;
+  color: #c7d2fe;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.encabezado-principal h1 {
+  margin: 0 0 10px;
+  font-size: 38px;
+  line-height: 1.2;
+}
+
+.descripcion-principal {
+  max-width: 650px;
+  margin: 0 0 24px;
+  color: #e0e7ff;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.boton-restaurar-todas {
+  padding: 11px 16px;
+  color: #312e81;
+  font-size: 14px;
+  font-weight: 700;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.boton-restaurar-todas:hover {
+  background-color: #eef2ff;
+  transform: translateY(-1px);
+}
+
+.contenido-principal {
+  width: 100%;
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 38px 20px;
+}
+
+.encabezado-seccion {
+  display: flex;
+  margin-bottom: 25px;
+  padding: 22px 24px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background-color: #ffffff;
+  border-left: 6px solid #4f46e5;
+  border-radius: 10px;
+  box-shadow: 0 4px 14px rgba(30, 41, 59, 0.06);
+}
+
+.seccion-etiqueta {
+  margin: 0 0 5px;
+  color: #4f46e5;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.encabezado-seccion h2 {
+  margin: 0 0 6px;
+  color: #1e293b;
+  font-size: 25px;
+}
+
+.encabezado-seccion p:not(.seccion-etiqueta) {
+  margin: 0;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+.contador-formulas {
+  flex-shrink: 0;
+  padding: 8px 13px;
+  color: #3730a3;
+  font-size: 13px;
+  font-weight: 700;
+  background-color: #e0e7ff;
+  border-radius: 20px;
+}
+
+.lista-formulas {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.tarjeta-formula {
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  background-color: #ffffff;
+  border: 1px solid #dbe3f0;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(30, 41, 59, 0.07);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.tarjeta-formula:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(30, 41, 59, 0.1);
+}
+
+.encabezado-tarjeta {
+  display: flex;
+  padding: 22px;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 15px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.encabezado-tarjeta h3 {
+  margin: 10px 0 0;
+  color: #1e293b;
+  font-size: 20px;
+}
+
+.area-formula {
+  display: inline-block;
+  padding: 5px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+  border-radius: 15px;
+}
+
+.area-fisica {
+  color: #1d4ed8;
+  background-color: #dbeafe;
+}
+
+.area-matematicas {
+  color: #7e22ce;
+  background-color: #f3e8ff;
+}
+
+.boton-restaurar {
+  padding: 7px 10px;
+  color: #475569;
+  font-size: 12px;
+  font-weight: 600;
+  background-color: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.boton-restaurar:hover {
+  color: #3730a3;
+  background-color: #eef2ff;
+  border-color: #818cf8;
+}
+
+.ecuacion {
+  display: flex;
+  margin: 20px 22px 0;
+  padding: 14px 16px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+}
+
+.ecuacion span {
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.ecuacion strong {
+  color: #312e81;
+  font-family: Consolas, monospace;
+  font-size: 17px;
+  text-align: right;
+}
+
+.seccion-variables {
+  flex: 1;
+  padding: 22px;
+}
+
+.seccion-variables h4 {
+  margin: 0 0 14px;
+  color: #475569;
+  font-size: 13px;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+}
+
+.variables {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 14px;
+}
+
+.variable label {
+  display: block;
+  margin-bottom: 6px;
+  color: #475569;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.variable input {
+  width: 100%;
+  padding: 10px 11px;
+  color: #1e293b;
+  font-size: 15px;
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 7px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.variable input:focus {
+  background-color: #ffffff;
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.14);
+}
+
+.resultado {
+  display: flex;
+  margin: 0 22px 22px;
+  padding: 16px 17px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  background-color: #eef2ff;
+  border: 1px solid #c7d2fe;
+  border-radius: 9px;
+}
+
+.resultado-etiqueta {
+  display: block;
+  margin-bottom: 4px;
+  color: #4f46e5;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.resultado p {
+  margin: 0;
+  color: #64748b;
+  font-size: 12px;
+}
+
+.resultado-valor {
+  flex-shrink: 0;
+  color: #312e81;
+  font-family: Consolas, monospace;
+  font-size: 22px;
+}
+
+.informacion-final {
+  margin-top: 28px;
+  padding: 22px 24px;
+  color: #334155;
+  background-color: #ffffff;
+  border: 1px solid #dbe3f0;
+  border-radius: 10px;
+}
+
+.informacion-final h2 {
+  margin: 0 0 8px;
+  color: #312e81;
+  font-size: 20px;
+}
+
+.informacion-final p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.pie-pagina {
+  padding: 24px 20px;
+  color: #64748b;
+  text-align: center;
+  background-color: #ffffff;
+  border-top: 1px solid #dbe3f0;
+}
+
+.pie-pagina p {
+  margin: 0;
+  font-size: 13px;
+}
+
+@media (max-width: 850px) {
+  .lista-formulas {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .encabezado-principal {
+    padding: 38px 18px;
+  }
+
+  .encabezado-principal h1 {
+    font-size: 30px;
+  }
+
+  .contenido-principal {
+    padding: 25px 14px;
+  }
+
+  .encabezado-seccion,
+  .encabezado-tarjeta,
+  .ecuacion,
+  .resultado {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .boton-restaurar {
+    width: 100%;
+  }
+
+  .ecuacion strong {
+    text-align: left;
+  }
+}
